@@ -1,0 +1,28 @@
+{
+  "name": "escola-node-vue",
+  "version": "1.0.0",
+  "description": "Um projeto integrando um API feita em nodeJs e um front feito em VueJs.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RafaelPatekoski/escola-node-vue.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RafaelPatekoski/escola-node-vue/issues"
+  },
+  "homepage": "https://github.com/RafaelPatekoski/escola-node-vue#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.3.3"
+  }
+}
