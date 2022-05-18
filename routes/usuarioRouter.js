@@ -3,7 +3,7 @@ const router = express.Router()
 const usuarioController = require('../controllers/usuarioController')
 
 router.get('/', (req, res)=>{
-    res.send(typeof(req.usuario))
+    res.send('usuarios')
 })
 router.post('/login', usuarioController.login)
 router.post('/', usuarioController.cadastro)
