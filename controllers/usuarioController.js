@@ -1,13 +1,16 @@
 const Usuario = require('../models/Usuario')
 
 const verificarUsuario = async(req, res, next)=>{
+    console.log(req.headers.token)
     try{
-      req.usuario = await Usuario.findById(cookie)
+      req.usuario = await Usuario.findById(req.headers.token)
       console.log(req.usuario.autorizacao)
+      console.log('---------')
       //Verificar se ta pegando o usuario certo
       if(req.usuario === undefined){req.usuario = null}
       else{}
     }catch(error){
+        console.log('não registrado')
         req.usuario = null
     }
     
@@ -18,7 +21,10 @@ const cadastro = async(req, res)=>{
     if(req.usuario === null){return res.send('Não autenticado')}
     //Verificar se o usuario tem autorização para criar outro usuario
     else if(req.usuario.autorizacao === 'usuario'){
-        return res.send('Não autorizado')
+        return res.send('Não autorizado usuario')
+    }
+    else if(req.usuario.autorizacao === 'secretario'){
+        return res.send('Não autorizado secretario')
     }
     else{
     let usuario = new Usuario(req.body)
