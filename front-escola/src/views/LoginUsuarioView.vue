@@ -7,7 +7,7 @@
 
 <script>
 // @ is an alias to /src
-import FormLoginUsuario from '../components/FormLoginUsuario.vue'
+import FormLoginUsuario from '../components/Forms/FormLoginUsuario.vue'
 
 export default {
   name: 'LoginUsuarioView',

@@ -1,8 +1,10 @@
 <template>
   <div class="turmas">
+    <ul>
      <li v-for="turma in turmas" :key="turma">
         {{ turma.anoTurma }}{{ turma.classeTurma}}
-    </li>   
+    </li>
+    </ul>
   </div>
 </template>
 

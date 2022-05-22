@@ -13,12 +13,13 @@ module.exports = {
         }
     },
     cadastro: async(req, res)=>{
+        console.log(req.body)
         let professor = new Professor(req.body)
         try{
             let doc = await professor.save()
             res.send('professor cadastrado')
         } catch(error){
-            console.log('Error')
+            console.log('Error aqui')
             res.send(error)
         }
     },
