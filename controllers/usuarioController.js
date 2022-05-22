@@ -51,4 +51,14 @@ const login = async (req, res)=>{
     res.send({token: selectedUser.id});
 }
 
-module.exports = {verificarUsuario, cadastro, login}
+const mostrarPorId = async(req, res)=>{
+    try{
+        let id = req.params.id
+        let usuario = await Usuario.findById(id)
+        res.send({usuario: usuario.usuario, autorizacao: usuario.autorizacao})
+    }catch(error){
+        res.send(error)
+    }
+}
+
+module.exports = {verificarUsuario, cadastro, login, mostrarPorId}

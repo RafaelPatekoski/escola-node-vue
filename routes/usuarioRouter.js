@@ -7,4 +7,5 @@ router.get('/', (req, res)=>{
 })
 router.post('/login', usuarioController.login)
 router.post('/', usuarioController.cadastro)
+router.get('/:id', usuarioController.mostrarPorId)
 module.exports = router
