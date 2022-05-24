@@ -38,6 +38,7 @@ module.exports = {
         try{
             res.send(professor)
         }catch(error){
+            console.log(error)
             res.send(error)
         }
     },

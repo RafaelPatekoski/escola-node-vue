@@ -6,6 +6,7 @@
      <li v-for="professor in professores" :key="professor">
         <p>Nome: {{ professor.nomeProfessor }}</p>
         <p>Formação: {{ professor.formacaoProfessor }}</p>
+        <hr>
     </li>
     </ul>
   </div>

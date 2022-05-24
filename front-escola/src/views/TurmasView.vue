@@ -4,9 +4,12 @@
     <button><router-link to="/criarturma">Cadastrar Professor</router-link></button>
     <ul>
      <li v-for="turma in turmas" :key="turma">
+        {{ turma.ordem }}
         Turma: {{ turma.anoTurma }}{{ turma.classeTurma}} <br>
-        Professor: {{ getProfessor(turma.nomeProfessor, turma.id) }}
+        Professor: {{professor[turma.ordem]}}
+        <hr>
     </li>
+  
     </ul>
   </div>
 </template>
@@ -25,23 +28,28 @@ export default {
   components: {
   },
   methods: {
-    getProfessor: function(idprofessor, idturma){
+    getProfessor: function(idprofessor){
+      if(idprofessor === undefined){return}
       try{
         axios.get(`http://localhost:3000/professor/${idprofessor}`).then(resp => {
-        console.log(resp.data.nomeProfessor)
-        professor.push({professor: resp.data.nomeProfessor, idturma})
+        this.professor.push(resp.data.nomeProfessor)
       });
       } catch(error){
         console.log('deu errado')
       }
   }
   },
-  created: function(){
-        try{
+  created: async function(){
+    try{
         axios.get('http://localhost:3000/turma').then(resp => {
-
         this.turmas = resp.data
-        console.log(this.usuario)
+        console.log(this.turmas[0].professorTurma)
+        for (var i = 0; i < this.turmas.length; i++) {
+          this.turmas[i].ordem = i
+          this.getProfessor(this.turmas[i].professorTurma)
+        }
+        console.log(this.turmas)
+        
     });
     } catch(error){
       console.log('deu errado')
