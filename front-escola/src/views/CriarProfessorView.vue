@@ -1,7 +1,8 @@
 <template>
   <div class="home">
     <h1>CRIAR</h1>
-    <FormCriarProfessorVue></FormCriarProfessorVue>
+    <FormCriarProfessorVue></FormCriarProfessorVue><br>
+    <button><router-link to="/professores">VOLTAR</router-link></button>
   </div>
 </template>
 

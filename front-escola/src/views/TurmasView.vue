@@ -1,8 +1,11 @@
 <template>
   <div class="turmas">
+    <h1>Turmas</h1>
+    <button><router-link to="/criarturma">Cadastrar Professor</router-link></button>
     <ul>
      <li v-for="turma in turmas" :key="turma">
-        {{ turma.anoTurma }}{{ turma.classeTurma}}
+        Turma: {{ turma.anoTurma }}{{ turma.classeTurma}} <br>
+        Professor: {{ getProfessor(turma.nomeProfessor, turma.id) }}
     </li>
     </ul>
   </div>
@@ -15,10 +18,23 @@ export default {
   name: 'TurmasView',
   data() {
       return {
-          turmas: {}
+          turmas: {},
+          professor: []
       }
   },
   components: {
+  },
+  methods: {
+    getProfessor: function(idprofessor, idturma){
+      try{
+        axios.get(`http://localhost:3000/professor/${idprofessor}`).then(resp => {
+        console.log(resp.data.nomeProfessor)
+        professor.push({professor: resp.data.nomeProfessor, idturma})
+      });
+      } catch(error){
+        console.log('deu errado')
+      }
+  }
   },
   created: function(){
         try{

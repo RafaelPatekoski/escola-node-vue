@@ -26,6 +26,7 @@ module.exports = {
     mostrar: async(req, res)=>{
         let professores = await  Professor.find({})
         try{
+            console.log('aqui chefinho')
             res.send(professores)
         }catch(error){
             res.send(error)

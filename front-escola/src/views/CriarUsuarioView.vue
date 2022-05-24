@@ -7,7 +7,7 @@
 
 <script>
 // @ is an alias to /src
-import FormCriarUsuarioVue from '../components/CriarUsuario/FormCriarUsuario.vue'
+import FormCriarUsuarioVue from '@/components/Forms/FormCriarUsuario.vue'
 
 export default {
   name: 'CriarUsuarioView',
