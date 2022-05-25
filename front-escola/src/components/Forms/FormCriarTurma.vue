@@ -55,7 +55,7 @@ export default{
                 'token': this.pegarcookie('token')
             }
         } ).then(() => {
-            window.location.href = '/'
+            window.location.href = '/#/turmas'
             }, (error) => {
                 console.log(error);
             });

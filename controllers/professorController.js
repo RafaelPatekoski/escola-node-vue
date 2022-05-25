@@ -1,5 +1,5 @@
 const Professor = require('../models/Professor')
-
+const Turma = require('../models/Turma')
 module.exports = {
     verificarAutorizacao: async(req, res, next)=>{
         if(req.usuario === null){return res.send('Não autenticado')}
@@ -61,7 +61,9 @@ module.exports = {
         let id = req.params.id
         try{
             await Professor.findByIdAndDelete(id)
+            await Turma.findOneAndUpdate({professorTurma: id}, {professorTurma: "semprofessor"})
             res.send('Professor(a) excluido(a) com sucesso')
+            //precisa atualizar as turmas
     
         }catch(error){
             res.send('Ocorreu algum erro')

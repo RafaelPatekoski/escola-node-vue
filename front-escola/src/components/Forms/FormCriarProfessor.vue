@@ -6,7 +6,7 @@
         <input type="text" name="formacao" id="formacao" placeholder="Formação"><br>
         <input type="text" name="genero" id="genero" placeholder="Genero"><br>
         <br>
-        <button v-on:click="criar">Logar</button>
+        <button v-on:click="criar">Cadastrar Professor</button>
         <br>
     </div>
 </template>
@@ -43,7 +43,7 @@ export default{
                 'token': this.pegarcookie('token')
             }
         } ).then(() => {
-            window.location.href = '/'
+            window.location.href = '/#/professores'
             }, (error) => {
                 console.log(error);
             });

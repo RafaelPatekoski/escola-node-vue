@@ -1,7 +1,7 @@
 <template>
   <div class="turmas">
     <h1>Turmas</h1>
-    <button><router-link to="/criarturma">Cadastrar Professor</router-link></button>
+    <button><router-link to="/criarturma">Cadastrar Turma</router-link></button>
     <ul>
      <li v-for="turma in turmas" :key="turma">
         {{ turma.ordem }}
